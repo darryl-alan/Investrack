@@ -10,6 +10,9 @@ gem "devise"
 gem "twitter-bootstrap-rails"
 gem 'devise-bootstrap-views'
 gem "jquery-rails"
+gem 'font-awesome-rails'
+
+gem "stock_quote", '~> 3.0.0'
 
 gem "bcrypt", "~> 3.1.7"
 # Use Puma as the app server
