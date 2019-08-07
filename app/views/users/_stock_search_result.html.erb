@@ -1,0 +1,9 @@
+<%= bootstrap_flash %>
+<% if @stock %>
+  <div class="clearfix"></div>
+  <div class="well search-result">
+    Symbol: <strong><%= @stock.code %></strong><br>
+    Name: <strong><%= @stock.name %></strong><br>
+    Price: <strong><%= @stock.price %></strong>
+  </div>
+<% end %>

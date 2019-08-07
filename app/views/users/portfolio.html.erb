@@ -1,7 +1,7 @@
 <h1>Portfolio</h1>
 <h3>Search for stocks</h3>
-<div>
-  <%= form_tag "#", method: :get do %>
+<div class='row'>
+  <%= form_tag search_stocks_path, remote: true, method: :get do %>
     <div class='form-group row no-padding text-center col-md-12'>
       <div class='col-md-10'>
         <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker symbol",
@@ -14,4 +14,7 @@
       </div>
     </div>
   <% end %>
+</div>
+<div id="search-result-container">
+  <%= render 'stock_search_result' %>
 </div>

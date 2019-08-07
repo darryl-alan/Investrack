@@ -1,4 +1,4 @@
 class UsersController < ApplicationController
-def portfolio
-end
+  def portfolio
+  end
 end
