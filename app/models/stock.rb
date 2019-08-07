@@ -1,4 +1,6 @@
 class Stock < ApplicationRecord
+  has_many :user_stocks
+  has_many :users, through: :user_stocks
   def self.search(code)
     begin
       StockQuote::Stock.new(api_key: "pk_1a42cb106a294ee98add0abd565751ad")

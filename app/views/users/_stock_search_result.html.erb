@@ -1,9 +1,24 @@
-<%= bootstrap_flash %>
+<% if params[:controller] == 'stocks' && params[:action] == 'search' %>
+  <%= bootstrap_flash %>
+<% end %>
 <% if @stock %>
   <div class="clearfix"></div>
   <div class="well search-result">
     Symbol: <strong><%= @stock.code %></strong><br>
     Name: <strong><%= @stock.name %></strong><br>
-    Price: <strong><%= @stock.price %></strong>
+    Price: <strong><%= @stock.price %></strong><br>
+    <% if current_user.can_add_stock?(@stock.code) %>
+      <%= link_to "Add to portfolio", user_stocks_path(stock: @stock.code),
+              method: :post, class: 'btn btn-primary' %>
+    <% else %>
+      <span class="label label-default">
+        Unable to add stock, you have already 
+        <% if !current_user.under_portfolio_limit? %>
+          reached the stock limit
+        <% else %>
+          added this stock
+        <% end %>
+      </span>
+    <% end %>
   </div>
 <% end %>
