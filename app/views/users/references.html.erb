@@ -1,0 +1,12 @@
+<h1>References</h1>
+<%= render 'references/search' %>
+<div id="search-result-container">
+  <%= render 'references/user_search_result' %>
+</div>
+<% if @references.any? %>
+  <%= render 'references/list' %>
+<% else %>
+  <div class="col-xs-12">
+    <h3>You don't have any references</h3>
+  </div>
+<% end %>

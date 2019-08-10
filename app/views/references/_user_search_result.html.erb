@@ -1,0 +1,22 @@
+<% if params[:controller] == 'users' && params[:action] == 'search' %>
+  <%= bootstrap_flash %>
+<% end %>
+<% if @users %>
+  <div class="clearfix"></div>
+  <% @users.each do |u| %>
+    <div class="well search-result">
+      Name: <strong><%= u.name %></strong><br>
+      Email: <strong><%= u.email %></strong><br>
+      <%= link_to "View", user_path(u.id),
+              method: :post, class: 'btn btn-info' %>
+      <% if current_user.can_add_reference?(u) %>
+        <%= link_to "Add", connections_path(reference_id: u.id),
+              method: :post, class: 'btn btn-primary' %>
+      <% else %>
+        <span class="label label-default">
+          Already a reference
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,15 @@
+<div class='row'>
+  <%= form_tag search_references_path, remote: true, method: :get do %>
+    <div class='form-group row no-padding text-center col-md-12'>
+      <div class='col-md-10'>
+        <%= text_field_tag :query, params[:query], placeholder: "Name or email...",
+				autofocus: true, class: "form-control" %>
+      </div>
+      <div class='col-md-2'>
+        <%= button_tag type: :submit, class: 'btn btn-primary' do %>
+          <i class='fa fa-search'></i> Search user
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

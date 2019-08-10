@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @references.each do |r| %>
+      <tr>
+        <td><%= r.name %></td>
+        <td><%= r.email %></td>
+        <td>
+          <%= link_to "View", user_path(r), class: 'btn btn-success' %>
+          <%= link_to "Delete", 
+					connection_path(r), 
+					data: {confirm: "Are you sure?"}, 
+					method: :delete, 
+					class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
