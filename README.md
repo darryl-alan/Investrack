@@ -1,24 +1,78 @@
-# README
+# Investrack
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A stock investment reference system, built for Jayacom Alpha Electronics, to keep track of employee investments.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-* System dependencies
+### Prerequisites
 
-* Configuration
+Install these gems
 
-* Database creation
+```
+gem install rails
+gem install bcrypt
+gem install stock_quote
+```
 
-* Database initialization
+### Installing
 
-* How to run the test suite
+Run bundle install
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+bundle install --without production
+```
 
-* Deployment instructions
+Setup database
 
-* ...
+```
+rails db:migrate
+```
+
+Then start the server
+
+```
+rails server
+```
+
+## Running the tests
+
+```
+rails test
+```
+
+## Deployment
+
+This was built to be run on Heroku.
+
+```
+heroku login
+```
+
+Follow the instructions to login, and then
+
+```
+heroku create
+```
+
+And then
+
+```
+git push heroku master
+```
+
+Finally to migrate the database run
+
+```
+heroku run rails db:migrate
+```
+
+## Built With
+
+- [Ruby on Rails](https://rubyonrails.org/) - The web framework used
+- [Bootstrap](https://getbootstrap.com/) - CSS framework
+
+## License
+
+This project is licensed under the MIT License
